@@ -1,0 +1,24 @@
+# Keep datasets and derived row-level data out of the public repository.
+data/
+DATA/
+*.csv
+*.xlsx
+*.xls
+*.parquet
+
+# Local Python and editor files.
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.env
+.env.*
+!.env.example
+
+# Original academic documents and generated outputs.
+*.docx
+*.pptx
+*.pdf
+*.log
+~$*
