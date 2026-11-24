@@ -6,7 +6,7 @@ This case study explores whether customer review sentiment could add useful cont
 
 ## Project status
 
-This repository is being prepared as a public portfolio case study. The thesis source folder contains multiple model versions with conflicting metrics, so the figures below are transcribed from the final presentation and are not yet independently reproduced from one verified pipeline. No raw data, full report, presentations, or private academic identifiers are included.
+This repository is a public portfolio case study. The thesis source folder contains multiple model versions with conflicting metrics, so the figures below are transcribed from the final presentation and are not yet independently reproduced from one verified pipeline. No raw data, full report, presentations, or private academic identifiers are included.
 
 ## Reported results
 
@@ -26,7 +26,18 @@ The thesis combines fashion retail transactions with Women's E-Commerce Clothing
 - [Fashion Retail Sales — A. Soundankar (Kaggle)](https://www.kaggle.com/datasets/atharvasoundankar/fashion-retail-sales)
 - [Women's E-Commerce Clothing Reviews (Kaggle)](https://www.kaggle.com/datasets/nicapotato/womens-ecommerce-clothing-reviews)
 
-Review records have no timestamps, so the review sentiment cannot be aligned to the time a real forecast would have been made. Customer reviews are only a proxy for social media activity. The Fashion Retail Sales listing's current license and redistribution terms must be confirmed before publishing data or row-level outputs. The raw datasets are intentionally not included.
+Review records have no timestamps, so the review sentiment cannot be aligned to the time a real forecast would have been made. Customer reviews are only a proxy for social media activity. The current Fashion Retail Sales license and terms for redistribution or derived materials must be confirmed before publishing data or row-level outputs. The raw datasets are intentionally not included.
+
+## Code
+
+The scripts folder contains source-derived scripts for cleaning the sales data, cleaning review text, and scoring reviews with VADER. They are included as academic project code, not as a verified reproduction of the final presentation's model results. The result versions must be reconciled before a single final modelling pipeline can be published.
+
+Download each dataset from its cited page and place it locally in `data/raw/` using the filenames expected by the scripts:
+
+- `Fashion_Retail_Sales.csv`
+- `Womens Clothing E-Commerce Reviews data.csv`
+
+Install dependencies with `python -m pip install -r requirements.txt`. From the repository root, run `python scripts/clean_fashion_retail_sales.py`, `python scripts/clean_womens_clothing_reviews.py`, and then `python scripts/sentiment_analysis_vader.py`. The review scripts may download NLTK resources on first use. Generated and raw data paths are excluded by `.gitignore`.
 
 ## Reconciliation needed
 
