@@ -2,7 +2,7 @@
 
 **Academic project · M.Sc. Data Science · Shreejita Mukhopadhyay**
 
-This case study explores whether customer review sentiment could add useful context to fashion retail demand forecasts. The original thesis describes this as “social media-driven demand,” but its sentiment input is customer product reviews, not social media posts. The distinction matters: this work tests an exploratory proxy, not a direct social-media signal.
+This case study explores whether customer review sentiment could add useful context to fashion retail demand forecasts. My original thesis describes this as “social media-driven demand,” but its sentiment input is customer product reviews, not social media posts. The distinction matters: this work tests an exploratory proxy, not a direct social-media signal.
 
 ## Project status
 
