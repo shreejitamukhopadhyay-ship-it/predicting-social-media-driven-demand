@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Shreejita Mukhopadhyay's M.Sc. project exploring customer review sentiment and fashion retail demand.">
+  <title>Predicting Social Media-Driven Demand in the Retail Supply Chain | Shreejita Mukhopadhyay</title>
+  <style>
+    :root { color-scheme: light; --ink: #172321; --muted: #52635f; --paper: #f5f7f3; --card: #fff; --accent: #176b59; --line: #dbe4de; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.65 system-ui, -apple-system, "Segoe UI", sans-serif; }
+    main { width: min(820px, calc(100% - 36px)); margin: 0 auto; padding: 56px 0 88px; }
+    a { color: var(--accent); text-underline-offset: 4px; }
+    .eyebrow, .meta { color: var(--muted); font-size: .88rem; }
+    h1 { max-width: 760px; margin: 12px 0; font-size: clamp(2.3rem, 7vw, 4rem); line-height: 1.06; letter-spacing: -.04em; }
+    h2 { margin-top: 40px; font-size: 1.3rem; }
+    .lead { color: var(--muted); font-size: 1.16rem; }
+    .note { margin: 26px 0; padding: 16px 19px; background: #e9f2ed; border-left: 4px solid var(--accent); border-radius: 6px; }
+    table { width: 100%; border-collapse: collapse; margin: 22px 0; background: var(--card); font-variant-numeric: tabular-nums; }
+    th, td { padding: 11px 12px; border-bottom: 1px solid var(--line); text-align: right; }
+    th:first-child, td:first-child { text-align: left; }
+    th { color: var(--muted); font-size: .88rem; }
+    ul { padding-left: 1.2rem; }
+    footer { margin-top: 52px; color: var(--muted); font-size: .88rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <p><a href="../index.html">← Portfolio</a></p>
+    <div class="eyebrow">Shreejita Mukhopadhyay · M.Sc. Data Science · Academic project</div>
+    <h1>Predicting Social Media-Driven Demand in the Retail Supply Chain</h1>
+    <p class="lead">I combined monthly fashion sales with customer review sentiment to explore whether review signals could add useful context to next-month transaction forecasts.</p>
+    <p class="meta">Python · pandas · NLTK/VADER · scikit-learn · Random Forest · XGBoost · Draft case study</p>
+    <p><a href="https://github.com/shreejitamukhopadhyay-ship-it/predicting-social-media-driven-demand">Browse the project code and documentation on GitHub</a></p>
+    <div class="note"><strong>What the results say:</strong> tree-based models had lower average errors than the linear models in the final presentation, but their R² scores remained around zero and slightly negative. This is an exploratory comparison, not a dependable forecasting system.</div>
+    <h2>What I did</h2>
+    <ul>
+      <li>Cleaned 3,400 fashion retail transaction records and summarized demand by item and month.</li>
+      <li>Scored customer review text with VADER and summarized sentiment by product category.</li>
+      <li>Created a manual mapping between sales item names and review categories, then joined the summaries.</li>
+      <li>Built a next-month transaction target and compared linear regression, Random Forest, and XGBoost.</li>
+    </ul>
+    <h2>Results reported in the final presentation</h2>
+    <table>
+      <thead><tr><th>Model</th><th>MAE</th><th>RMSE</th><th>MAPE</th><th>R²</th></tr></thead>
+      <tbody>
+        <tr><td>Linear Regression baseline</td><td>2.827</td><td>3.529</td><td>78.13%</td><td>-1.855</td></tr>
+        <tr><td>Sentiment-enhanced Linear Regression</td><td>2.877</td><td>3.505</td><td>80.32%</td><td>-1.816</td></tr>
+        <tr><td>Random Forest</td><td>1.633</td><td>2.106</td><td>44.03%</td><td>-0.017</td></tr>
+        <tr><td>XGBoost</td><td>1.624</td><td>2.094</td><td>44.43%</td><td>-0.005</td></tr>
+      </tbody>
+    </table>
+    <p>Random Forest had the lowest MAPE, while XGBoost had the lowest MAE and RMSE. The near-zero, slightly negative R² values show that the models explained little of the variation in the evaluation data. Adding sentiment to the linear model slightly reduced RMSE but did not improve MAE or MAPE.</p>
+    <h2>Limits I would address next</h2>
+    <ul>
+      <li>The sales and review sources have no common product ID. The project used a manual category mapping; 18 of 50 sales items remained unmatched.</li>
+      <li>The review records have no timestamps. Their sentiment summaries cannot be aligned to when a forecast would have been made, so they are not proven to be an early signal.</li>
+      <li>The sales history spans about one year, leaving a small basis for time-based evaluation.</li>
+      <li>Reviews are a proxy for customer opinion, not direct social media activity.</li>
+    </ul>
+    <p>A stronger follow-up would use timestamped reviews and sales with shared product IDs, compare against a seasonal-naive baseline, and evaluate over multiple rolling time windows.</p>
+    <h2>Data sources and reproducibility</h2>
+    <p>The review data is from <a href="https://www.kaggle.com/datasets/nicapotato/womens-ecommerce-clothing-reviews">Women's E-Commerce Clothing Reviews</a> on Kaggle (listed as CC0). The second dataset is identified in the academic materials only by the name “Fashion Retail Sales”; its exact original listing and license still need confirmation. The raw files and full report are not included here.</p>
+    <p class="meta">The source folder contains a later lagged-model workbook with different metrics, as well as an old draft report with another comparison. Those outputs are kept separate from the final-presentation results above until the final pipeline is verified. The later script predicts next-month transactions but appears to split rows using the current row's date, so the exact target-month coverage must be checked before describing its test window as July–August.</p>
+    <footer>This is an academic project, not production forecasting work. It does not contain company or customer data from employment.</footer>
+  </main>
+</body>
+</html>
+
