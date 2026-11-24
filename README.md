@@ -4,7 +4,7 @@
 
 This case study explores whether customer review sentiment could add useful context to fashion retail demand forecasts. My original thesis describes this as “social media-driven demand,” but its sentiment input is customer product reviews, not social media posts. The distinction matters: this work tests an exploratory proxy, not a direct social-media signal.
 
-## Project status
+## Additional portfolio project\n\nShreejita also completed Maven Analytics' **Microsoft Power BI Desktop for Business Intelligence** course and built a guided AdventureWorks sales and returns dashboard. The [text-only case study](https://shreejitamukhopadhyay-ship-it.github.io/predicting-social-media-driven-demand/projects/adventureworks-dashboard.html) describes the visible Power Query, data modeling, DAX, and report design work. The AdventureWorks data cannot be redistributed, so this repository contains no PBIX, raw CSVs, report screenshots, numeric dashboard outputs, or customer-level details.\n\n## Project status
 
 This repository is a public portfolio case study. The thesis source folder contains multiple model versions with conflicting metrics, so the figures below are transcribed from the final presentation and are not yet independently reproduced from one verified pipeline. No raw data, full report, presentations, or private academic identifiers are included.
 
